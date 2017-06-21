@@ -4,15 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Season extends Model
+class Field extends Model
 {
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function league()
+    public function location()
     {
-        return $this->belongsTo(League::class);
+        return $this->belongsTo(Location::class);
     }
 
     /**

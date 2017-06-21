@@ -4,9 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Season extends Model
+class Team extends Model
 {
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -16,10 +15,10 @@ class Season extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function games()
+    public function players()
     {
-        return $this->hasMany(Game::class);
+        return $this->belongsToMany(User::class, 'player_team', 'team_id', 'player_id');
     }
 }
