@@ -8,7 +8,9 @@ class LeagueController extends Controller
 {
     public function create()
     {
-        return view('league.create');
+        $league = League::find(1);
+
+        return view('league.create')->withLeague($league);
     }
 
     public function store()
