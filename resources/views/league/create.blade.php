@@ -9,22 +9,16 @@
         <div class="form-group">
             <label>Name:</label>
             <input
-                type="text"
-                name="name"
-                class="form-control"
-                placeholder="Ej: Geek League"
-                value="{{ $league->name or '' }}"
+                type="text" name="name" value="{{ $league->name or '' }}"
+                class="form-control" placeholder="Ej: Geek League"
             >
         </div>
 
         <div class="form-group">
             <label>Email:</label>
             <input
-                type="email"
-                name="email"
-                class="form-control"
-                placeholder="league@example.com"
-                value="{{ $league->email or '' }}"
+                type="email" name="email" value="{{ $league->email or '' }}"
+                class="form-control" placeholder="league@example.com"
             >
         </div>
 
@@ -32,8 +26,8 @@
             <label>Domain:</label>
             <div class="input-group">
                 <input
-                    type="text" class="form-control"
-                    placeholder="league-slug" value="{{ $league->slug or '' }}"
+                    type="text" value="{{ $league->slug or '' }}"
+                    class="form-control" placeholder="league-slug"
                 >
                 <span class="input-group-addon">managerleague.com</span>
             </div>
