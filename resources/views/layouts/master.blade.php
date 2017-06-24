@@ -21,13 +21,8 @@
 <header>
     @include('partials.nav')
 </header>
-<div class="container">
-    <div class="content row">
-        <div class="col-12">
-            @yield('content')
-        </div>
-    </div>
-</div>
+
+@yield('content')
 
 <!-- Scripts -->
 @include('partials.scripts')
