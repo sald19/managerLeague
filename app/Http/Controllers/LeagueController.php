@@ -6,6 +6,14 @@ use App\League;
 
 class LeagueController extends Controller
 {
+    /**
+     * LeagueController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function create()
     {
         $league = League::find(1);
