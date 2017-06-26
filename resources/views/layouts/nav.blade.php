@@ -24,5 +24,19 @@
                 <a class="nav-link" href="#">Games</a>
             </li>
         </ul>
+
+        @if(auth()->check())
+            <div>
+                <img
+                        src="https://avatars.io/twitter/sald19/small"
+                        alt="Profile"
+                        class="rounded-circle mr-3"
+                        height="32px" width="32px"
+                >
+                <button type="button" class="btn btn-outline-danger">Logout</button>
+            </div>
+        @else
+            <a href="">Login</a>
+        @endif
     </div>
 </nav>
