@@ -36,7 +36,8 @@
                 <button type="button" class="btn btn-outline-danger">Logout</button>
             </div>
         @else
-            <a href="">Login</a>
+            <a href="{{ route('login') }}" class="btn btn-primary mr-2">Login</a>
+            <a href="{{ route('register') }}" class="btn btn-success">Register</a>
         @endif
     </div>
 </nav>

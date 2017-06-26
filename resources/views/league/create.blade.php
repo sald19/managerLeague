@@ -13,7 +13,7 @@
                         <label>Name:</label>
                         <input
                                 type="text" name="name" value="{{ $league->name or '' }}"
-                                class="form-control" placeholder="Ej: Geek League"
+                                class="form-control"
                         >
                     </div>
 
@@ -21,7 +21,7 @@
                         <label>Email:</label>
                         <input
                                 type="email" name="email" value="{{ $league->email or '' }}"
-                                class="form-control" placeholder="league@example.com"
+                                class="form-control"
                         >
                     </div>
 
@@ -30,7 +30,7 @@
                         <div class="input-group">
                             <input
                                     type="text" value="{{ $league->slug or '' }}"
-                                    class="form-control" placeholder="league-slug"
+                                    class="form-control"
                             >
                             <span class="input-group-addon">managerleague.com</span>
                         </div>
