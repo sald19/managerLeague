@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="col-md-8 mx-auto">
+    <div class="col-md-6 mx-auto">
         <div class="card">
             <div class="card-block">
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">

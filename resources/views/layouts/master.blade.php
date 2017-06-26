@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Styles -->
-    @include('partials.styles')
+    @include('layouts.styles')
 
     @stack('styles')
 
@@ -19,13 +19,13 @@
 <body>
 
 <header>
-    @include('partials.nav')
+    @include('layouts.nav')
 </header>
 
 @yield('content')
 
 <!-- Scripts -->
-@include('partials.scripts')
+@include('layouts.scripts')
 
 @stack('scripts')
 
