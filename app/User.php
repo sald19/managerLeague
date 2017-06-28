@@ -26,4 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function leagues()
+    {
+        return $this->belongsToMany(League::class, 'league_user', 'user_id', 'league_id');
+    }
 }
