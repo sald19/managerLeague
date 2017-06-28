@@ -8,13 +8,16 @@
             aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">{{ '{['.config('app.name').']}' }}</a>
+    <a class="navbar-brand" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/UEFA_Champions_League_logo_2.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        {{ auth()->user()->selectedLeague ? auth()->user()->selectedLeague->name  : 'League Name' }}
+    </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('league.create') }}">
-                    Settings <span class="sr-only">(current)</span>
+                <a class="nav-link" href="{{ route('league.index') }}">
+                    Leagues <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">

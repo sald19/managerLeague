@@ -11,29 +11,30 @@
 
                     <div class="form-group">
                         <label>Name:</label>
-                        <input
-                                type="text" name="name" value="{{ $league->name or '' }}"
-                                class="form-control"
-                        >
+                        <input type="text" name="name" value="{{ $league->name or '' }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Email:</label>
-                        <input
-                                type="email" name="email" value="{{ $league->email or '' }}"
-                                class="form-control"
-                        >
+                        <input type="email" name="email" value="{{ $league->email or '' }}" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Domain:</label>
                         <div class="input-group">
-                            <input
-                                    type="text" value="{{ $league->slug or '' }}"
-                                    class="form-control"
-                            >
+                            <input type="text" value="{{ $league->slug or '' }}" class="form-control">
                             <span class="input-group-addon">managerleague.com</span>
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" name="default" class="custom-control-input"
+                                {{ auth()->user()->leagues->isEmpty() ? 'checked' : '' }}
+                            >
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Set this league as Default.</span>
+                        </label>
                     </div>
 
                     <input type="submit" class="btn btn-primary" value="Save">

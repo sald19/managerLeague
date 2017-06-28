@@ -14,9 +14,16 @@ class LeagueController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $leagues = auth()->user()->leagues;
+
+        return view('league.index', compact('leagues'));
+    }
+
     public function create()
     {
-        $league = League::find(1);
+        $league = auth()->user()->league;
 
         return view('league.create')->withLeague($league);
     }
@@ -28,8 +35,10 @@ class LeagueController extends Controller
             'email' => 'required|unique:leagues',
         ]);
 
-        League::create($league);
+        $league = array_add($league, 'default', request()->exists('default'));
 
-        return response()->redirectToRoute('league.create');
+        auth()->user()->leagues()->create($league);
+
+        return response()->redirectToRoute('league.index');
     }
 }
