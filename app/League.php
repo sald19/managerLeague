@@ -12,7 +12,7 @@ class League extends Model
     /**
      * {@inheritdoc}
      */
-    protected $fillable = ['name', 'email'];
+    protected $fillable = ['name', 'email', 'default'];
 
     /**
      * Return the sluggable configuration array for this model.
@@ -34,5 +34,10 @@ class League extends Model
     public function seasons()
     {
         return $this->hasMany(Season::class);
+    }
+
+    public function admins()
+    {
+        return $this->belongsToMany(User::class, 'league_user', 'league_id', 'user_id');
     }
 }
