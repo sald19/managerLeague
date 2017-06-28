@@ -18,6 +18,10 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+
+
+    protected $appends = ['selectedLeague'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -34,5 +38,15 @@ class User extends Authenticatable
     public function leagues()
     {
         return $this->belongsToMany(League::class, 'league_user', 'user_id', 'league_id');
+    }
+
+    public function selectedLeague()
+    {
+        return $this->leagues()->where('default', 1);
+    }
+
+    public function getSelectedLeagueAttribute()
+    {
+        return $this->selectedLeague()->first();
     }
 }
