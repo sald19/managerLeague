@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('league', 'LeagueController');
 
+Route::resource('team', 'TeamController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

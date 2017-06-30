@@ -23,8 +23,7 @@ class LeagueController extends Controller
 
     public function create()
     {
-        $league = auth()->user()->league;
-
+        $league = auth()->user()->leagues()->exists();
         return view('league.create')->withLeague($league);
     }
 
@@ -37,7 +36,13 @@ class LeagueController extends Controller
 
         $league = array_add($league, 'default', request()->exists('default'));
 
-        auth()->user()->leagues()->create($league);
+        // create league for admin
+        $league = auth()->user()->leagues()->create($league);
+
+        //create season for new league
+        $league->seasons()->create([
+            'season_name' => 'first Season',
+        ]);
 
         return response()->redirectToRoute('league.index');
     }

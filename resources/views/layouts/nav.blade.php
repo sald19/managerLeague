@@ -10,7 +10,11 @@
     </button>
     <a class="navbar-brand" href="#">
         <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/UEFA_Champions_League_logo_2.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        {{ auth()->user()->selectedLeague ? auth()->user()->selectedLeague->name  : 'League Name' }}
+        @if(auth()->check() && auth()->user()->league())
+            {{ auth()->user()->league()->name }}
+        @else
+            League Name
+        @endif
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -21,7 +25,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Teams</a>
+                <a class="nav-link" href="{{ route('team.index') }}">Teams</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Games</a>
