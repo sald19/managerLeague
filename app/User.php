@@ -40,13 +40,14 @@ class User extends Authenticatable
         return $this->belongsToMany(League::class, 'league_user', 'user_id', 'league_id');
     }
 
-    public function selectedLeague()
+    public function league($season = false)
     {
-        return $this->leagues()->where('default', 1);
-    }
+        $league = $this->leagues()->where('default', 1)->first();
 
-    public function getSelectedLeagueAttribute()
-    {
-        return $this->selectedLeague()->first();
+        if($season) {
+            $league->season = $league->season();
+        }
+
+        return $league;
     }
 }

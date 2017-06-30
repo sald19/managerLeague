@@ -36,6 +36,11 @@ class League extends Model
         return $this->hasMany(Season::class);
     }
 
+    public function season()
+    {
+        return $this->seasons()->latest('star_at')->first();
+    }
+
     public function admins()
     {
         return $this->belongsToMany(User::class, 'league_user', 'league_id', 'user_id');
