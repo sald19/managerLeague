@@ -13,22 +13,31 @@
                     <form class="card-block" method="post" action="{{  route('league.store') }}">
                         {{  csrf_field() }}
 
-                        <div class="form-group">
-                            <label>Name:</label>
+                        <div class="form-group {{$errors->has('name') ? 'has-danger' : ''}}">
+                            <label class="form-control-label">Name:</label>
                             <input type="text" name="name" class="form-control">
+                            @if($errors->has('name'))
+                                <div class="form-control-feedback">{{ $errors->first('name') }}</div>
+                            @endif
                         </div>
 
-                        <div class="form-group">
-                            <label>Email:</label>
+                        <div class="form-group {{$errors->has('email') ? 'has-danger' : ''}}">
+                            <label class="form-control-label">Email:</label>
                             <input type="email" name="email" class="form-control">
+                            @if($errors->has('email'))
+                                <div class="form-control-feedback">{{ $errors->first('email') }}</div>
+                            @endif
                         </div>
 
-                        <div class="form-group">
-                            <label>Domain:</label>
+                        <div class="form-group {{$errors->has('slug') ? 'has-danger' : ''}}">
+                            <label class="form-control-label">Domain:</label>
                             <div class="input-group">
                                 <input type="text" class="form-control">
                                 <span class="input-group-addon">managerleague.com</span>
                             </div>
+                            @if($errors->has('slug'))
+                                <div class="form-control-feedback">{{ $errors->first('slug') }}</div>
+                            @endif
                         </div>
 
                         <div class="form-group">
