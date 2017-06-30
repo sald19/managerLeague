@@ -68,4 +68,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function redirectTo()
+    {
+        return auth()->user()->leagues->isEmpty() ? '/league/create' : '/league/index';
+    }
 }
