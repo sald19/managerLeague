@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\League;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreTeam;
 
 class TeamController extends Controller
 {
@@ -20,5 +19,17 @@ class TeamController extends Controller
         $leagues = auth()->user()->leagues;
 
         return view('team.index', compact('leagues'));
+    }
+
+    public function create()
+    {
+        $leagues = auth()->user()->leagues;
+
+        return view('team.create', compact('leagues'));
+    }
+
+    public function store(StoreTeam $request)
+    {
+
     }
 }

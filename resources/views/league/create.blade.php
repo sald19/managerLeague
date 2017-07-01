@@ -15,7 +15,7 @@
 
                         <div class="form-group {{$errors->has('name') ? 'has-danger' : ''}}">
                             <label class="form-control-label">Name:</label>
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" name="name" class="form-control" required>
                             @if($errors->has('name'))
                                 <div class="form-control-feedback">{{ $errors->first('name') }}</div>
                             @endif
@@ -23,7 +23,7 @@
 
                         <div class="form-group {{$errors->has('email') ? 'has-danger' : ''}}">
                             <label class="form-control-label">Email:</label>
-                            <input type="email" name="email" class="form-control">
+                            <input type="email" name="email" class="form-control" required>
                             @if($errors->has('email'))
                                 <div class="form-control-feedback">{{ $errors->first('email') }}</div>
                             @endif
