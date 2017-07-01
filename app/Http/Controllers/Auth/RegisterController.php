@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Rules\ValidInvitation;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -66,11 +67,15 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'invitation' => [
+                'sometimes',
+                new ValidInvitation(),
+            ],
         ]);
     }
 
     public function redirectTo()
     {
-        return auth()->user()->leagues->isEmpty() ? '/league/create' : '/league/index';
+        return '/league';
     }
 }
