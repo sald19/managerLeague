@@ -15,6 +15,16 @@ class League extends Model
     protected $fillable = ['name', 'email', 'default'];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
@@ -39,6 +49,11 @@ class League extends Model
     public function season()
     {
         return $this->seasons()->latest('star_at')->first();
+    }
+
+    public function invitations()
+    {
+        return $this->morphMany(Invitation::class, 'hostable');
     }
 
     public function admins()
