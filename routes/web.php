@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('league', 'LeagueController');
 
+Route::post('league/{league}/invitation', 'InvitationController@leagueInvitationStore')->name('league.invitation');
+
 Route::resource('team', 'TeamController');
 
 Auth::routes();
