@@ -21,6 +21,11 @@ class TeamController extends Controller
         return view('team.index', compact('leagues'));
     }
 
+    public function createByInvitation()
+    {
+        return view('team.create-by-invitation');
+    }
+
     public function create()
     {
         $leagues = auth()->user()->leagues;
@@ -28,8 +33,8 @@ class TeamController extends Controller
         return view('team.create', compact('leagues'));
     }
 
-    public function store(StoreTeam $request)
+    public function storeByInvitation(StoreTeam $request)
     {
-
+        $request->all();
     }
 }

@@ -30,6 +30,16 @@
                                     @endif
                                 </div>
                             </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group {{$errors->has('team') ? 'has-danger' : ''}}">
+                                    <label class="form-control-label">Team Name:</label>
+                                    <input type="text" name="lastname" class="form-control" required>
+                                    @if($errors->has('team'))
+                                        <div class="form-control-feedback">{{ $errors->first('team') }}</div>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row">

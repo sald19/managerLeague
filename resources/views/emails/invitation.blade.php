@@ -1,10 +1,11 @@
 @component('mail::message')
-# Introduction
+# Hi,
 
-The body of your message.
+The **{{ $league->name }}** has invited you to join his league.
 
-@component('mail::button', ['url' => ''])
-Button Text
+
+@component('mail::button', ['url' => route('register', ['token' => $invitation->token])])
+Create Team
 @endcomponent
 
 Thanks,<br>

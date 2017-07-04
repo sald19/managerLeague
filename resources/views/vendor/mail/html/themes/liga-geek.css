@@ -85,7 +85,8 @@ img {
     background-color: #15b982;
     margin: 0;
     padding: 0;
-    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
     -premailer-width: 100%;
@@ -132,10 +133,10 @@ img {
     background-color: #ffffff;
     margin: 0 auto;
     padding: 0;
-    width: 570px;
+    width: 600px;
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
-    -premailer-width: 570px;
+    -premailer-width: 600px;
 }
 
 /* Subcopy */
@@ -156,10 +157,10 @@ img {
     margin: 0 auto;
     padding: 0;
     text-align: center;
-    width: 570px;
+    width: 600px;
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
-    -premailer-width: 570px;
+    -premailer-width: 600px;
 }
 
 .footer p {

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-6 mx-auto">
+        <div class="col-md-6 mx-auto">
             <div class="card">
                 <div class="card-header">Register</div>
                 <div class="card-block">
@@ -34,6 +34,22 @@
                                 </span>
                             @endif
                         </div>
+
+                        @if($invitation)
+                            <div class="form-group{{ $errors->has('team') ? ' has-error' : '' }}">
+                                <label for="team" class="control-label">Team Name:</label>
+
+                                <input type="text" class="form-control" name="team" value="{{ old('team') }}" required>
+
+                                @if ($errors->has('team'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('team') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <input type="hidden" name="token" value="{{ $invitation->token }}">
+                        @endif
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="control-label">Password</label>
